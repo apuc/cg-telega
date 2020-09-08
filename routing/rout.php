@@ -12,6 +12,8 @@ App::$collector->any('sign-up', ['workspace\controllers\MainController', 'action
 App::$collector->any('sign-in', ['workspace\controllers\MainController', 'actionSignIn']);
 App::$collector->any('logout', ['workspace\controllers\MainController', 'actionLogout']);
 
+App::$collector->any('telegram', ['workspace\controllers\MainController', 'actionTelegram']);
+
 App::$collector->any('codegen', ['workspace\controllers\CodegenController', 'actionCodeGenerator']);
 
 App::$collector->cors('modules', ['workspace\controllers\ModulesController'], ['actionModules']);

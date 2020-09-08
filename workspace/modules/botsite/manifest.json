@@ -1,0 +1,10 @@
+{
+  "name": "botsite",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\botsite\\Botsite",
+  "description": "botsite module",
+  "configFile": "config/botsite.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

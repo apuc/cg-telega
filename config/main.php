@@ -15,7 +15,17 @@ return [
         'url' => 'https://rep.craft-group.xyz',
         'modulePath' => '/workspace/modules/',
         'themePath' => '/workspace/modules/themes/themes/',
-    ]
+    ],
+    'db' => [
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'user' => 'root',
+        'pass' => '123edsaqw',
+        'db_name' => 'cgtelega',
+        'charset' => 'utf8',
+        'collation' => 'utf8_general_ci',
+        'prefix' => '',
+    ],
 ];
 /* Пример настройки локальной базы
 return [

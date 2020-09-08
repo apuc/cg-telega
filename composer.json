@@ -7,7 +7,6 @@
     "ext-dom": "*",
     "ext-ftp": "*",
     "ext-zip": "*",
-    "ext-apache": "*",
     "craft-group/phroute": "^2.1.1",
     "illuminate/events": "^6.0",
     "illuminate/database": "^6.0",
@@ -16,7 +15,9 @@
     "snapappointments/bootstrap-select": "^1.13",
     "samejack/php-argv": "dev-master",
     "symfony/filesystem": "^5.0",
-    "rakit/validation": "^1.2"
+    "rakit/validation": "^1.2",
+    "longman/telegram-bot": "^0.63.1",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {

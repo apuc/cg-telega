@@ -26,6 +26,17 @@ class MainController extends Controller
         return $this->render('main/index.tpl', ['h1' => App::$config['app_name'], 'buttons' => $buttons]);
     }
 
+    public function actionTelegram()
+    {
+        require 'vendor/autoload.php';
+
+        $telegram = new \workspace\modules\telegram\models\Telegram($config = [
+            'api_token' => '1155500941:AAHlnRX1RgcUOaOsSP88apqqdhTZt2qSMh8',
+            'bot_username' => 'craft_group_bot',
+            'webhook_url' => 'https://telega.craft-group.xyz/telegram'
+        ]);
+    }
+
     public function actionLanguage()
     {
         Language::widget()->run();

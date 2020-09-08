@@ -23,6 +23,7 @@ class ModulesHandler
             for ($j = 0; $j < count($server_modules[$i]); $j++)
                 foreach ($local_modules as $key => $local_module) {
                     $manifest = json_decode(file_get_contents('workspace/modules/' . $local_module . '/manifest.json'));
+
                     if ($manifest->name == $server_modules[$i][$j]->name && $manifest->version == $server_modules[$i][$j]->version) {
                         $module = new Modules();
                         $module->init($manifest->name, $manifest->version, $manifest->description, $mod->getModInfo($local_module)['status'], 'local');

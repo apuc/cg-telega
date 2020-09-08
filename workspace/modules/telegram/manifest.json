@@ -1,0 +1,11 @@
+{
+  "name": "telegram",
+  "version": "1.0",
+  "type": "module",
+  "class": "workspace\\modules\\telegram\\Telegram",
+  "description": "telegram module",
+  "configFile": "config/telegram.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations",
+  "relations": []
+}

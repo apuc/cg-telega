@@ -1,0 +1,10 @@
+{
+  "name": "site",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\site\\Site",
+  "description": "site module",
+  "configFile": "config/site.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}
