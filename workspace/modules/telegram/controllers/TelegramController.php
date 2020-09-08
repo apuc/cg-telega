@@ -61,4 +61,9 @@ class TelegramController extends Controller
             return $this->render('telegram/store.tpl', ['h1' => 'Добавить', 'bots' => Bot::all()]);
         }
     }
+
+//    public function actionTelegramBot($webhook_url)
+//    {
+//
+//    }
 }

@@ -7,3 +7,5 @@ App::$collector->group(['before' => 'auth'], function ($router){
         App::$collector->gridView('telegram', ['workspace\modules\telegram\controllers\TelegramController']);
     });
 });
+
+//App::$collector->get('telegram/{webhook_url}', ['workspace\modules\telegram\controllers\TelegramController', 'actionTelegramBot']);
