@@ -21,6 +21,11 @@ class Site extends Model
         $this->save();
     }
 
+    public function bots()
+    {
+        return $this->hasMany('workspace\modules\bot\models\Bots');
+    }
+
     /**
      * @param SiteSearchRequest $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]

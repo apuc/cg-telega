@@ -14,12 +14,13 @@ use workspace\modules\bot\requests\BotSearchRequest;
  * @property string api_token
  * @property string webhook_url
  * @property boolean is_available
+ * @property integer db_id
  */
 class Bot extends Model
 {
     protected $table = "bot";
 
-    public $fillable = ['bot_username', 'api_token', 'webhook_url', 'is_available', 'created_at', 'updated_at'];
+    public $fillable = ['bot_username', 'api_token', 'webhook_url', 'is_available', 'created_at', 'updated_at', 'db_id'];
 
     public function _save()
     {
@@ -27,7 +28,14 @@ class Bot extends Model
         $this->api_token = $_POST["api_token"];
         $this->webhook_url = $_POST["webhook_url"];
         $this->is_available = $_POST["is_available"];
+        $this->db_id = $_POST["db_id"];
+
         $this->save();
+    }
+
+    public function sites()
+    {
+        return $this->hasMany('workspace\modules\site\models\Site');
     }
 
     /**

@@ -1,0 +1,10 @@
+{
+  "name": "botdb",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\botdb\\Botdb",
+  "description": "botdb module",
+  "configFile": "config/botdb.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

@@ -28,14 +28,14 @@ class BotSiteController extends Controller
 
         $options = $this->setOptions($model);
 
-        return $this->render('botsite/index.tpl', ['h1' => 'BotSite', 'model' => $model, 'options' => $options]);
+        return $this->render('botsite/index.tpl', ['h1' => 'Связь бота с сайтом', 'model' => $model, 'options' => $options]);
     }
 
     public function actionView($id)
     {
         $model = BotSite::where('id', $id)->first();
 
-        $options = $this->setOptions();
+        $options = $this->setOptions($model);
 
         return $this->render('botsite/view.tpl', ['model' => $model, 'options' => $options]);
     }
@@ -63,8 +63,12 @@ class BotSiteController extends Controller
             $model->_save();
 
             $this->redirect('admin/bot-site');
-        } else
-            return $this->render('botsite/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model]);
+        } else {
+            $bots = Bot::all();
+            $sites = Site::all();
+
+            return $this->render('botsite/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'bots' => $bots, 'sites' => $sites]);
+        }
     }
 
     public function actionDelete()
@@ -80,19 +84,17 @@ class BotSiteController extends Controller
             'fields' => [
                 'id' => 'Id',
                 '_site' => [
-                    'label' => 'Site',
+                    'label' => 'Сайт',
                     'value' => function($model) {
                         return $model->site->site_name;
                     }
                 ],
                 '_bot' => [
-                    'label' => 'Bot',
+                    'label' => 'Бот',
                     'value' => function($model) {
                         return $model->bot->bot_username;
                     }
                 ],
-                'created_at' => 'Created_at',
-                'updated_at' => 'Updated_at',
             ],
             'baseUri' => 'bot-site'
         ];

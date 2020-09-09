@@ -5,6 +5,8 @@ namespace workspace\controllers;
 use core\App;
 use core\component_manager\lib\Mod;
 use core\Controller;
+use workspace\modules\bot\models\Bot;
+use workspace\modules\botsite\models\BotSite;
 use workspace\modules\users\models\User;
 use workspace\requests\LoginRequest;
 use workspace\requests\RegistrationRequest;
@@ -26,15 +28,31 @@ class MainController extends Controller
         return $this->render('main/index.tpl', ['h1' => App::$config['app_name'], 'buttons' => $buttons]);
     }
 
-    public function actionTelegram()
+    public function actionTelegram($bot_username)
     {
-        require 'vendor/autoload.php';
+        $site = 'test';
+        $bot = BotSite::with(['site' => function ($query) use ($site) {
+            $query->where(['site_name' => $site]);
+        }, 'bot'])->get();
 
-        $telegram = new \workspace\modules\telegram\models\Telegram($config = [
-            'api_token' => '1155500941:AAHlnRX1RgcUOaOsSP88apqqdhTZt2qSMh8',
-            'bot_username' => 'craft_group_bot',
-            'webhook_url' => 'https://telega.craft-group.xyz/telegram'
-        ]);
+        $bot = 'craft_group_bot';
+        if ($bot != null) {
+            $webhook_url = $bot->webhook_url;
+            if ($webhook_url[strlen($webhook_url) - 1] !== '/') {
+                $webhook_url .= "/$bot_username";
+            }
+            $config = [
+                'api_token' => $bot->api_token,
+                'bot_username' => $bot->bot_username,
+                'webhook_url' => "$webhook_url"
+            ];
+
+            $config_db = [];
+
+            $telegram = new \workspace\modules\telegram\models\Telegram($config);
+        } else {
+            echo 'There is no such bot...';
+        }
     }
 
     public function actionLanguage()
@@ -81,6 +99,7 @@ class MainController extends Controller
                     $this->redirect('');
                 }
             }
+
             return $this->render('main/sign-in.tpl', ['errors' => $request->getMessagesArray()]);
         }
     }

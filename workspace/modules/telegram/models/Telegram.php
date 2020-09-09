@@ -10,7 +10,7 @@ use Longman\TelegramBot\Request;
 
 class Telegram extends Model
 {
-    private $telegram;
+    public $telegram;
     private $api_key;
     private $bot_username;
     private $webhook_url;
@@ -33,12 +33,12 @@ class Telegram extends Model
             var_dump($this->webhook_url);
             $result = $this->telegram->setWebhook($this->webhook_url);
             if ($result->isOk()) {
-                echo $result->getDescription();
-                $commands_paths = [
-                    __DIR__ . '/commands',
-                ];
-
-                $this->telegram->addCommandsPaths($commands_paths);
+//                echo $result->getDescription();
+//                $commands_paths = [
+//                    __DIR__ . '/commands',
+//                ];
+//
+//                $this->telegram->addCommandsPaths($commands_paths);
                 $this->telegram->handle();
                 $this->telegram->handleGetUpdates();
             }
@@ -49,6 +49,9 @@ class Telegram extends Model
 
     public function connectDB()
     {
+        $db_id = 1;
+
+
         try {
             $mysql_credentials = [
                 'host' => 'localhost',

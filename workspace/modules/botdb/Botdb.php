@@ -1,18 +1,18 @@
 <?php
 
-namespace workspace\modules\bot;
+namespace workspace\modules\botdb;
 
 
 use core\App;
 
-class Bot
+class Botdb
 {
     public static function run()
     {
         $config['adminLeftMenu'] = [
             [
-                'title' => 'Bot',
-                'url' => '/admin/bot',
+                'title' => 'BotDb',
+                'url' => '/admin/bot-db',
                 'icon' => '<i class="nav-icon fa fa-file"></i>',
             ],
         ];

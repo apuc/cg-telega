@@ -62,8 +62,26 @@ class TelegramController extends Controller
         }
     }
 
-//    public function actionTelegramBot($webhook_url)
-//    {
-//
-//    }
+    public function actionTelegram()
+    {
+        require 'vendor/autoload.php';
+//echo 123;
+//        $telegram = new \workspace\modules\telegram\models\Telegram($config = [
+//            'api_token' => '1155500941:AAHlnRX1RgcUOaOsSP88apqqdhTZt2qSMh8',
+//            'bot_username' => 'craft_group_bot',
+//            'webhook_url' => 'https://telega.craft-group.xyz/telegram'
+//        ]);
+        $bot = Bot::where('id', 1)->first();
+        $config = [
+            'api_token' => $bot->api_token,
+            'bot_username' => $bot->bot_username,
+            'webhook_url' => $bot->webhook_url
+        ];
+//            $config = [
+//                'api_token' => '1155500941:AAHlnRX1RgcUOaOsSP88apqqdhTZt2qSMh8',
+//                'bot_username' => 'craft_group_bot',
+//                'hook_host' => 'https://telega.craft-group.xyz/'
+//            ];
+        $telegram = new Telegram($config);
+    }
 }

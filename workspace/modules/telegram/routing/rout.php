@@ -8,4 +8,4 @@ App::$collector->group(['before' => 'auth'], function ($router){
     });
 });
 
-//App::$collector->get('telegram/{webhook_url}', ['workspace\modules\telegram\controllers\TelegramController', 'actionTelegramBot']);
+//App::$collector->get('telegram/{webhook_url}', ['workspace\modules\telegram\controllers\TelegramController', 'actionTelegram']);

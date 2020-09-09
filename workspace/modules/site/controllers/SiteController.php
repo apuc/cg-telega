@@ -26,7 +26,7 @@ class SiteController extends Controller
 
         $options = $this->setOptions($model);
 
-        return $this->render('site/index.tpl', ['h1' => 'Site', 'model' => $model, 'options' => $options]);
+        return $this->render('site/index.tpl', ['h1' => 'Сайт', 'model' => $model, 'options' => $options]);
     }
 
     public function actionView($id)
@@ -73,10 +73,8 @@ class SiteController extends Controller
             'serial' => '#',
             'fields' => [
                 'id' => 'Id',
-                'site_name' => 'Site_name',
-                'url' => 'Url',
-                'created_at' => 'Created_at',
-                'updated_at' => 'Updated_at',
+                'site_name' => 'Название сайта',
+                'url' => 'Url'
             ],
             'baseUri' => 'site'
         ];

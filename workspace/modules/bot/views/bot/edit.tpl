@@ -4,7 +4,7 @@
 <div class="h1">{$h1} {$model->id}</div>
 
 <div class="container">
-    <form class="form-horizontal" name="edit_form" id="edit_form" method="post" action="/admin/Bot/update/{$model->id}">
+    <form class="form-horizontal" name="edit_form" id="edit_form" method="post" action="/admin/botdb/update/{$model->id}">
         <div class="form-group">
             <label for="bot_username">Bot_username:</label>
             <input type="text" name="bot_username" id="bot_username" class="form-control" value="{$model->bot_username}" required="required" />

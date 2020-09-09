@@ -1,3 +1,3 @@
 <div class="h1">{$h1}</div>
-<a href="/admin/bot/create" class="btn btn-dark">Создать</a>
+<a href="/admin/bot-db/create" class="btn btn-dark">Создать</a>
 {core\Cjax::widget(['id' => 'cjax', 'data' => core\GridView::widget($options)->run()])->run()}
