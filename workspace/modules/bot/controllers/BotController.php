@@ -9,6 +9,7 @@ use core\Controller;
 use workspace\modules\bot\models\Bot;
 use workspace\modules\bot\requests\BotSearchRequest;
 use workspace\modules\botdb\models\BotDb;
+use workspace\modules\telegram\models\Telegram;
 
 class BotController extends Controller
 {
@@ -28,6 +29,7 @@ class BotController extends Controller
 
     public function actionIndex()
     {
+        new Telegram('test');
         $request = new BotSearchRequest();
         $model = Bot::search($request);
 

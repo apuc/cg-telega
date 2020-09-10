@@ -19,6 +19,9 @@ use workspace\modules\bot\requests\BotSearchRequest;
 class Bot extends Model
 {
     protected $table = "bot";
+    CONST BOT_IS_ACTIVE = 1;
+    CONST BOT_IS_NOT_ACTIVE = 0;
+
 
     public $fillable = ['bot_username', 'api_token', 'webhook_url', 'is_available', 'created_at', 'updated_at', 'db_id'];
 
@@ -36,6 +39,11 @@ class Bot extends Model
     public function sites()
     {
         return $this->hasMany('workspace\modules\site\models\Site');
+    }
+
+    public function botdb()
+    {
+        return $this->belongsTo('workspace\modules\botdb\models\BotDb');
     }
 
     /**

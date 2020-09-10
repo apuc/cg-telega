@@ -6,6 +6,7 @@ namespace workspace\modules\botdb\controllers;
 
 use core\App;
 use core\Controller;
+use Longman\TelegramBot\Telegram;
 use workspace\modules\botdb\models\BotDb;
 use workspace\modules\botdb\requests\BotDbSearchRequest;
 
@@ -23,7 +24,7 @@ class BotDbController extends Controller
     {
         $request = new BotDbSearchRequest();
         $model = BotDb::search($request);
-
+        new Telegram();
         $options = $this->setOptions($model);
 
         return $this->render('botdb/index.tpl', ['h1' => 'BotDb', 'model' => $model, 'options' => $options]);
@@ -76,8 +77,6 @@ class BotDbController extends Controller
                 'user' => 'User',
                 'password' => 'Password',
                 'database' => 'Database',
-                'created_at' => 'Created_at',
-                'updated_at' => 'Updated_at',
             ],
             'baseUri' => 'bot-db',
             'data' => $data

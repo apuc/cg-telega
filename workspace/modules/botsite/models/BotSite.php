@@ -15,9 +15,8 @@ class BotSite extends Model
 
     public function _save()
     {
-            $this->site_id = $_POST["site_id"];
-            $this->bot_id = $_POST["bot_id"];
-
+        $this->site_id = $_POST["site_id"];
+        $this->bot_id = $_POST["bot_id"];
         $this->save();
     }
 
